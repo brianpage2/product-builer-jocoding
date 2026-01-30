@@ -157,7 +157,77 @@ button:hover {
     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
 }
 
+
 button:active {
     transform: translateY(0);
     box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+}
+
+.contact-link {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-link a {
+    color: var(--button-bg);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.contact-link a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Form Styles */
+.contact-container {
+    max-width: 600px;
+    width: 90%;
+    padding: 30px;
+}
+
+.contact-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--button-bg);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.contact-container button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 15px;
 }

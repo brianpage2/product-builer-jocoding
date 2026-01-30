@@ -39,3 +39,39 @@ generateButton.addEventListener('click', handleGenerateClick);
 
 // Initial generation
 handleGenerateClick();
+
+// --- Theme Switcher Logic ---
+const themeToggle = document.getElementById('theme-toggle');
+const themeLabel = document.querySelector('.theme-switcher label');
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (theme === 'dark') {
+        themeToggle.checked = true;
+        themeLabel.textContent = 'Light Mode';
+    } else {
+        themeToggle.checked = false;
+        themeLabel.textContent = 'Dark Mode';
+    }
+}
+
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+        setTheme('dark');
+    } else {
+        setTheme('light');
+    }
+});
+
+// Check for saved theme on load
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme) {
+    setTheme(savedTheme);
+} else if (prefersDark) {
+    setTheme('dark');
+} else {
+    setTheme('light');
+}
